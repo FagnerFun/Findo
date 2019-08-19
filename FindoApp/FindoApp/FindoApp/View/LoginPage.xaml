@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:render="clr-namespace:FindoApp.Control"
+             x:Class="FindoApp.View.LoginPage">
+    <ContentPage.Content>
+        <render:GradientColorStack 
+            ColorsList="#CCCCCC,#282828"
+            Mode="ToBottomRight">
+            <StackLayout VerticalOptions="CenterAndExpand">
+                <Image Source="findo.png" HeightRequest="80" WidthRequest="140" HorizontalOptions="Center"/>
+                <StackLayout 
+                    Orientation="Horizontal"
+                    Margin="0,50,0,0"
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="CenterAndExpand">
+                    <ImageButton BackgroundColor="Transparent" Source="fb.png" Margin="30" HorizontalOptions="Start" WidthRequest="64" HeightRequest="64" Clicked="Facebook_Clicked" />
+                    <ImageButton BackgroundColor="Transparent" Source="gp.png" Margin="30" HorizontalOptions="Center" WidthRequest="64" HeightRequest="64" Clicked="Google_Clicked" />
+                    <ImageButton BackgroundColor="Transparent" Source="mail.png" Margin="30" HorizontalOptions="End" WidthRequest="64" HeightRequest="64" Clicked="Mail_Clicked" />
+                </StackLayout>
+            </StackLayout>
+        </render:GradientColorStack>
+    </ContentPage.Content>
+</ContentPage>

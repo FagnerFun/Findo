@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "571409604621",
+    "firebase_url": "https://findo-245019.firebaseio.com",
+    "project_id": "findo-245019",
+    "storage_bucket": "findo-245019.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:571409604621:android:e811530d0e19309b",
+        "android_client_info": {
+          "package_name": "com.lobu.findo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "571409604621-b8ts7l72cf4r8eci8uftha08uul9ruj6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.lobu.findo",
+            "certificate_hash": "b502361f92e16602a8c5d5d8e6ca030d4b4087c0"
+          }
+        },
+        {
+          "client_id": "571409604621-vgqjnaghvnq35je9s1jnhrg9c7qcqidr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8llytWpXdj64hw9AsI0zcVe6SSWAxLFE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "571409604621-vgqjnaghvnq35je9s1jnhrg9c7qcqidr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

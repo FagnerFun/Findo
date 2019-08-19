@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.645
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Findo.Framework.API", "Findo.Framework.API\Findo.Framework.API.csproj", "{9B98E1EB-1417-440F-AF3D-45204FB5C806}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Findo.Framework.Interface", "Findo.Framework.Interface\Findo.Framework.Interface.csproj", "{34FB7B29-C83C-4831-8FC3-240566773F5B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Findo.Framework.Service", "Findo.Framework.Service\Findo.Framework.Service.csproj", "{6667D4AC-A840-4D2C-BE60-9E025B645232}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Findo.Framework.Persistence", "Findo.Framework.Persistence\Findo.Framework.Persistence.csproj", "{0B57255D-1E59-4831-96DB-66805878EC81}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Findo.Framework.Http", "Findo.Framework.Http\Findo.Framework.Http.csproj", "{49060054-A3F3-4BB1-BF42-7C8D3549EF97}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Findo.Framework.Cache", "Findo.Framework.Cache\Findo.Framework.Cache.csproj", "{4F60A568-5176-4330-8FBA-9970B9583B23}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9B98E1EB-1417-440F-AF3D-45204FB5C806}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B98E1EB-1417-440F-AF3D-45204FB5C806}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B98E1EB-1417-440F-AF3D-45204FB5C806}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B98E1EB-1417-440F-AF3D-45204FB5C806}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34FB7B29-C83C-4831-8FC3-240566773F5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34FB7B29-C83C-4831-8FC3-240566773F5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34FB7B29-C83C-4831-8FC3-240566773F5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34FB7B29-C83C-4831-8FC3-240566773F5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6667D4AC-A840-4D2C-BE60-9E025B645232}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6667D4AC-A840-4D2C-BE60-9E025B645232}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6667D4AC-A840-4D2C-BE60-9E025B645232}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6667D4AC-A840-4D2C-BE60-9E025B645232}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B57255D-1E59-4831-96DB-66805878EC81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B57255D-1E59-4831-96DB-66805878EC81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B57255D-1E59-4831-96DB-66805878EC81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B57255D-1E59-4831-96DB-66805878EC81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49060054-A3F3-4BB1-BF42-7C8D3549EF97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49060054-A3F3-4BB1-BF42-7C8D3549EF97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49060054-A3F3-4BB1-BF42-7C8D3549EF97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49060054-A3F3-4BB1-BF42-7C8D3549EF97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F60A568-5176-4330-8FBA-9970B9583B23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F60A568-5176-4330-8FBA-9970B9583B23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F60A568-5176-4330-8FBA-9970B9583B23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F60A568-5176-4330-8FBA-9970B9583B23}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {278F39CA-8A3D-46C5-9A52-75F50352232C}
+	EndGlobalSection
+EndGlobal
