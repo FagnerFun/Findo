@@ -15,6 +15,7 @@ using Xamarin.Facebook;
 using Newtonsoft.Json.Linq;
 using Android.Util;
 using Android.Gms.Common;
+using FindoApp.Droid.DependencyInjection;
 
 namespace FindoApp.Droid
 {
@@ -32,28 +33,28 @@ namespace FindoApp.Droid
 
             base.OnCreate(savedInstanceState);
 
-            CurrentPlatform.Init();
+            //CurrentPlatform.Init();
 
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
 
-            App.Init((IAuthenticate)this);
+            //App.Init((IAuthenticate)this);
 
-            if (Intent.Extras != null)
-            {
-                foreach (var key in Intent.Extras.KeySet())
-                {
-                    if (key != null)
-                    {
-                        var value = Intent.Extras.GetString(key);
-                        Log.Debug(TAG, "Key: {0} Value: {1}", key, value);
-                    }
-                }
-            }
+            //if (Intent.Extras != null)
+            //{
+            //    foreach (var key in Intent.Extras.KeySet())
+            //    {
+            //        if (key != null)
+            //        {
+            //            var value = Intent.Extras.GetString(key);
+            //            Log.Debug(TAG, "Key: {0} Value: {1}", key, value);
+            //        }
+            //    }
+            //}
 
-            IsPlayServicesAvailable();
-            CreateNotificationChannel();
+            //IsPlayServicesAvailable();
+            //CreateNotificationChannel();
 
-            LoadApplication(new App());
+            LoadApplication(new App(new AndroidPlatformInitializer()));
         }
 
         public async Task<bool> Authenticate(MobileServiceAuthenticationProvider provider)

@@ -91,8 +91,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Control\GradientColorStackRenderer.cs" />
+    <Compile Include="DependencyInjection\IOSPlatformInitializer.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="Service\DataBaseAccessService.cs" />
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -149,10 +151,17 @@
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="3.4.0.1008975" />
+    <PackageReference Include="Prism.DryIoc.Forms">
+      <Version>7.2.0.1367</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Forms" Version="4.1.0.673156" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
+    <ProjectReference Include="..\..\FindoApp.Domain\FindoApp.Domain.csproj">
+      <Project>{6B404CC7-8991-4AB9-A536-D752FD18E698}</Project>
+      <Name>FindoApp.Domain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FindoApp\FindoApp.csproj">
       <Project>{B9DC852F-DE6B-4554-8A6D-35364D351968}</Project>
       <Name>FindoApp</Name>
@@ -169,5 +178,20 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\findo.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\garbage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\share.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\list.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\add.png" />
   </ItemGroup>
 </Project>

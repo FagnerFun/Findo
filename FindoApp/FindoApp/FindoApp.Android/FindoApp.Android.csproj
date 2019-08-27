@@ -55,6 +55,9 @@
     <PackageReference Include="Microsoft.Azure.Mobile.Client">
       <Version>4.1.1</Version>
     </PackageReference>
+    <PackageReference Include="Prism.DryIoc.Forms">
+      <Version>7.2.0.1367</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.Android.Support.CustomTabs">
       <Version>28.0.0.1</Version>
     </PackageReference>
@@ -67,7 +70,7 @@
     <PackageReference Include="Xamarin.Firebase.Messaging">
       <Version>60.1142.1</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="4.0.0.540366" />
+    <PackageReference Include="Xamarin.Forms" Version="4.1.0.673156" />
     <PackageReference Include="Xamarin.Android.Support.Design" Version="28.0.0.1" />
     <PackageReference Include="Xamarin.Android.Support.v7.AppCompat" Version="28.0.0.1" />
     <PackageReference Include="Xamarin.Android.Support.v4" Version="28.0.0.1" />
@@ -78,11 +81,14 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Control\GradientColorContentRender.cs" />
     <Compile Include="Control\GradientColorStackRenderer.cs" />
+    <Compile Include="DependencyInjection\AndroidPlatformInitializer.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="MyFirebaseIIDService.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\DataBaseAccessService.cs" />
   </ItemGroup>
   <ItemGroup>
     <GoogleServicesJson Include="google-services.json" />
@@ -115,6 +121,10 @@
     <Folder Include="Resources\drawable-xxxhdpi\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\FindoApp.Domain\FindoApp.Domain.csproj">
+      <Project>{6b404cc7-8991-4ab9-a536-d752fd18e698}</Project>
+      <Name>FindoApp.Domain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FindoApp\FindoApp.csproj">
       <Project>{B9DC852F-DE6B-4554-8A6D-35364D351968}</Project>
       <Name>FindoApp</Name>
@@ -131,6 +141,21 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\findo.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\garbage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\share.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\list.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\add.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

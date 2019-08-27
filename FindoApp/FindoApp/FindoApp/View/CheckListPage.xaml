@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:FindoApp"
+             xmlns:render="clr-namespace:FindoApp.Control"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="FindoApp.View.CheckListPage">
+
+    <render:GradientColorStack 
+            ColorsList="#3E3E40,#282828"
+            Mode="ToBottomRight">
+        <StackLayout BackgroundColor="#282828" HorizontalOptions="FillAndExpand" >
+            <Label Text="LISTAS" 
+               TextColor="#AFAFAF"
+               BackgroundColor="Transparent"
+               Margin="12"
+               FontSize="Medium"
+               FontAttributes="Bold"/>
+        </StackLayout>
+        <SearchBar Placeholder="buscar lista" TextColor="#B3B3B5" BackgroundColor="#6E6E70" FontSize="Small" Margin="10,5" HeightRequest="40" CancelButtonColor="#B3B3B5" PlaceholderColor="#B3B3B5"  />
+        <ListView VerticalOptions="FillAndExpand"
+                  HorizontalOptions="FillAndExpand"
+                  HasUnevenRows="True"
+                  Margin="10"
+                  BackgroundColor="Transparent"
+                  CachingStrategy="RecycleElement"
+                  GroupDisplayBinding="{Binding Title}"
+                  IsGroupingEnabled="true"
+                  SelectionMode="None"
+                  IsRefreshing="{Binding IsBusy}"
+                  ItemsSource="{Binding Items}"
+                  SeparatorVisibility="None">
+            <ListView.GroupHeaderTemplate>
+                <DataTemplate>
+                    <TextCell TextColor="#FEDB03" Text="{Binding Title}}"/>
+                </DataTemplate>
+            </ListView.GroupHeaderTemplate>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.ContextActions>
+                            <MenuItem IconImageSource="garbage.png" Command="{Binding DeleteItemCommand}" />
+                            <MenuItem IconImageSource="share.png" Command="{Binding ShareItemCommand}" />
+                        </ViewCell.ContextActions>
+                        <render:GradientColorContent VerticalOptions="FillAndExpand"
+                               HorizontalOptions="FillAndExpand"                                                    
+                               ColorsList="#3E3E40,#282828"
+                               Padding="0" 
+                               Margin="0,5"
+                               Mode="ToRight">
+                            <Grid VerticalOptions="FillAndExpand"
+                               HorizontalOptions="FillAndExpand">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="60"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <BoxView Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" 
+                                         BackgroundColor="#FEDB03" 
+                                         VerticalOptions="FillAndExpand"
+                                         HorizontalOptions="FillAndExpand" />
+                                <Label Grid.Row="0" Grid.Column="1" 
+                                       Text="{Binding Title}"
+                                       FontSize="Medium"
+                                       TextColor="#AFAFAF"
+                                       Margin="10,0,0,0"
+                                       VerticalTextAlignment="Center" />
+                                <Label Grid.Row="1" Grid.Column="1"
+                                       Text="Participantes: 6"
+                                       FontSize="Small"
+                                       TextColor="#AFAFAF"  
+                                       Margin="10,0,0,0" 
+                                       VerticalTextAlignment="Center" />
+                                <Label Grid.Row="0" Grid.Column="2"
+                                       HorizontalOptions="FillAndExpand"
+                                       Text="800"
+                                       FontSize="Large"
+                                       FontAttributes="Bold"
+                                       HorizontalTextAlignment="Center"
+                                       VerticalTextAlignment="Center"
+                                       TextColor="#AFAFAF" />
+                                <Label Grid.Row="1" Grid.Column="2"
+                                       HorizontalOptions="Fill"
+                                       Text="checks"
+                                       FontSize="Small"
+                                       HorizontalTextAlignment="Center"
+                                       TextColor="#FEDB03" />
+                            </Grid>
+                        </render:GradientColorContent>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            
+        </ListView>
+    </render:GradientColorStack>
+
+</ContentPage>

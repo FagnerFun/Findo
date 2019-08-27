@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+            xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+             xmlns:views="clr-namespace:FindoApp.View"
+             mc:Ignorable="d"
+             x:Class="FindoApp.View.MainPage"
+            NavigationPage.HasNavigationBar="False"
+            android:TabbedPage.ToolbarPlacement="Bottom"
+            BarBackgroundColor="#282828"
+            SelectedTabColor="#FEDB03"
+            UnselectedTabColor="#FEDB03">
+    <TabbedPage.Children>
+        <views:AddPage IconImageSource="add.png"/>
+        <views:CheckListPage IconImageSource="list.png"/>
+        <views:SettingPage IconImageSource="settings.png"/>
+    </TabbedPage.Children>
+</TabbedPage>

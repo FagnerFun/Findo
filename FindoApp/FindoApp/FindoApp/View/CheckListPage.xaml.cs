@@ -5,11 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace FindoApp
+namespace FindoApp.View
 {
-    public partial class MainPage : ContentPage
+    public partial class CheckListPage : ContentPage
     {
-        public MainPage()
+        public CheckListPage()
         {
             InitializeComponent();
         }

@@ -1,13 +1,16 @@
 ﻿using FindoApp.Model.interfaces;
 using FindoApp.View;
-using System;
+using FindoApp.ViewModel;
+using Prism;
+using Prism.DryIoc;
+using Prism.Ioc;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace FindoApp
 {
-    public partial class App : Application
+    public partial class App : PrismApplication
     {
         public static IAuthenticate Authenticator { get; private set; }
 
@@ -16,26 +19,22 @@ namespace FindoApp
             Authenticator = authenticator;
         }
 
-        public App()
+        public App() : this(null) { }
+
+        public App(IPlatformInitializer initializer) : base(initializer) { }
+        
+        protected override async void OnInitialized()
         {
             InitializeComponent();
-
-            MainPage = new LoginPage();
+            await NavigationService.NavigateAsync($"{nameof(NavigationPage)}/{nameof(MainPage)}?selectedTab={nameof(CheckListPage)}");
         }
 
-        protected override void OnStart()
+        protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            // Handle when your app starts
-        }
-
-        protected override void OnSleep()
-        {
-            // Handle when your app sleeps
-        }
-
-        protected override void OnResume()
-        {
-            // Handle when your app resumes
+            containerRegistry.RegisterForNavigation<NavigationPage>();
+            containerRegistry.RegisterForNavigation<MainPage, MainViewModel>();
+            containerRegistry.RegisterForNavigation<LoginPage, LoginViewModel>();
+            containerRegistry.RegisterForNavigation<CheckListPage, CheckListViewModel>();
         }
     }
 }
