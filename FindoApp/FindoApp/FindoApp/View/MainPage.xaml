@@ -11,7 +11,7 @@
             android:TabbedPage.ToolbarPlacement="Bottom"
             BarBackgroundColor="#282828"
             SelectedTabColor="#FEDB03"
-            UnselectedTabColor="#FEDB03">
+            UnselectedTabColor="#6E6E70">
     <TabbedPage.Children>
         <views:AddPage IconImageSource="add.png"/>
         <views:CheckListPage IconImageSource="list.png"/>

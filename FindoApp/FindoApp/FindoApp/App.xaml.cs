@@ -1,4 +1,6 @@
-﻿using FindoApp.Model.interfaces;
+﻿using FindoApp.Domain.Interface.Service;
+using FindoApp.Model.interfaces;
+using FindoApp.Service;
 using FindoApp.View;
 using FindoApp.ViewModel;
 using Prism;
@@ -35,6 +37,10 @@ namespace FindoApp
             containerRegistry.RegisterForNavigation<MainPage, MainViewModel>();
             containerRegistry.RegisterForNavigation<LoginPage, LoginViewModel>();
             containerRegistry.RegisterForNavigation<CheckListPage, CheckListViewModel>();
+            containerRegistry.RegisterForNavigation<CheckListItemPage, CheckListItemViewModel>();
+
+
+            containerRegistry.Register<ICheckListService, CheckListService>();
         }
     }
 }

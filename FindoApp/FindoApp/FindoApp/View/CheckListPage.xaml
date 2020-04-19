@@ -1,11 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:FindoApp"
              xmlns:render="clr-namespace:FindoApp.Control"
+             xmlns:behaviors="clr-namespace:FindoApp.Behavior"
              NavigationPage.HasNavigationBar="False"
              x:Class="FindoApp.View.CheckListPage">
-
     <render:GradientColorStack 
             ColorsList="#3E3E40,#282828"
             Mode="ToBottomRight">
@@ -26,13 +25,13 @@
                   CachingStrategy="RecycleElement"
                   GroupDisplayBinding="{Binding Title}"
                   IsGroupingEnabled="true"
-                  SelectionMode="None"
                   IsRefreshing="{Binding IsBusy}"
                   ItemsSource="{Binding Items}"
-                  SeparatorVisibility="None">
+                  SeparatorVisibility="None"
+                  behaviors:AttachedItemTappedBehavior.Command="{Binding ItemClickCommand}">
             <ListView.GroupHeaderTemplate>
                 <DataTemplate>
-                    <TextCell TextColor="#FEDB03" Text="{Binding Title}}"/>
+                    <TextCell TextColor="#FEDB03" Text="{Binding Title}"/>
                 </DataTemplate>
             </ListView.GroupHeaderTemplate>
             <ListView.ItemTemplate>
@@ -94,8 +93,6 @@
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
-            
         </ListView>
     </render:GradientColorStack>
-
 </ContentPage>

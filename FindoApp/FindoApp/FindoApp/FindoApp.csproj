@@ -31,7 +31,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Control\Accordion.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="View\AddPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="View\CheckListItemPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="View\LoginMailPage.xaml">
@@ -52,10 +58,28 @@
     <None Update="App.xaml">
       <Generator>MSBuild:Compile</Generator>
     </None>
+    <None Update="Control\Accordion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
     <None Update="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </None>
+    <None Update="View\AddPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="View\CheckListItemPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="View\CheckListPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
     <None Update="View\LoginPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="View\MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="View\SettingPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </None>
   </ItemGroup>

@@ -16,20 +16,21 @@ namespace FindoApp.Domain.Model
 
         public Guid IdGroupCheckList { get; set; }
 
-        public string Descricao { get; set; }
+        public string Description { get; set; }
 
-        public int Ordem { get; set; }
+        public int Order { get; set; }
 
         public bool IsRequired { get; set; }
 
         public enAnswerType AnswerType { get; set; }
 
-        //public virtual ICollection<RelCheckListItemAlternativa> ItemOption { get; set; }
+        public virtual ICollection<RelCheckListItemAlternativa> ItemOption { get; set; }
 
-        //public virtual ICollection<CheckListItemAlternativa> Options { get; set; }
+        public virtual ICollection<CheckListItemAlternativa> Options { get; set; }
 
-        //public virtual CheckListItemAnswer Answer { get; set; }
+        public virtual CheckListItemAnswer Answer { get; set; }
 
         public virtual GroupCheckList Group { get; set; }
+
     }
 }

@@ -5,7 +5,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="CheckListService.cs~RF2dc65e48.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Refit" Version="4.7.51" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FindoApp.Domain\FindoApp.Domain.csproj" />
   </ItemGroup>
 
 </Project>

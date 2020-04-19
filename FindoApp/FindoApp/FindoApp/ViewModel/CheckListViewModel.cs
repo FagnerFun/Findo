@@ -1,40 +1,47 @@
-﻿using FindoApp.Domain.Model;
+﻿using FindoApp.Domain.Interface.Service;
+using FindoApp.Domain.Model;
 using FindoApp.Model;
 using Prism.Navigation;
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Threading.Tasks;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace FindoApp.ViewModel
 {
     public class CheckListViewModel : ViewModelBase
     {
         public ObservableCollection<CheckListHeaderGroup> Items { get; }
+        public ICommand ItemClickCommand { get; set; }
 
-        public CheckListViewModel(INavigationService navigationService) : base(navigationService)
+
+        private ICheckListService _checkListService;
+        public CheckListViewModel(INavigationService navigationService, ICheckListService checkListService) : base(navigationService)
         {
+            _checkListService = checkListService;
+
             Items = new ObservableCollection<CheckListHeaderGroup>();
 
+            List<CheckList> checklits = _checkListService.GetCheckLists();
 
-            List<CheckList> checklits = new List<CheckList>();
+            var orderedList = checklits.GroupBy(c => c.Title[0])
+                                       .ToDictionary(x => x.Key, x => x.ToList())
+                                       .OrderBy(x => x.Key)
+                                       .Select(x => new CheckListHeaderGroup(x.Value, x.Key.ToString()));
 
-            checklits.Add(new CheckList { IdCheckList = Guid.NewGuid(), Title = "A Lista 123" });
-            checklits.Add(new CheckList { IdCheckList = Guid.NewGuid(), Title = "A Lista 456" });
-            checklits.Add(new CheckList { IdCheckList = Guid.NewGuid(), Title = "Uma Lista Qualquer" });
-            checklits.Add(new CheckList { IdCheckList = Guid.NewGuid(), Title = "Minha Listagem" });
-            checklits.Add(new CheckList { IdCheckList = Guid.NewGuid(), Title = "Minha Listagem teste" });
-            checklits.Add(new CheckList { IdCheckList = Guid.NewGuid(), Title = "Lista de pedidos" });
-            checklits.Add(new CheckList { IdCheckList = Guid.NewGuid(), Title = "Lista de produtos" });
-
-            var dictonary = checklits.GroupBy(c => c.Title[0]).ToDictionary(x => x.Key, x => x.ToList()).OrderBy(x => x.Key);
-
-            foreach (var item in dictonary)
-            {
-                var groupItem = new CheckListHeaderGroup { Title = item.Key.ToString() };
-                groupItem.AddRange(item.Value);
-                Items.Add(groupItem);
-            }
+            Items = new ObservableCollection<CheckListHeaderGroup>(orderedList);
+            ItemClickCommand = new Command<CheckList>( async (item) => await ItemClickCommandExecute(item) );
         }
+
+        private Task ItemClickCommandExecute(CheckList item)
+        {
+            var parameters = new NavigationParameters();
+            parameters.Add("checklist", item);
+
+            return NavigationService.NavigateAsync("CheckListItemPage", parameters);
+        }
+
     }
 }

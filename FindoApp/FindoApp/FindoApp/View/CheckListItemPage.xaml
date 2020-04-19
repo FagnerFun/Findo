@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:render="clr-namespace:FindoApp.Control"
+             xmlns:behaviors="clr-namespace:FindoApp.Behavior"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="FindoApp.View.CheckListItemPage">
+    <render:GradientColorStack 
+            ColorsList="#3E3E40,#282828"
+            Mode="ToBottomRight">
+        <StackLayout BackgroundColor="#282828" HorizontalOptions="FillAndExpand" >
+            <Label Text="{Binding ListName}" 
+               TextColor="#AFAFAF"
+               BackgroundColor="Transparent"
+               Margin="12"
+               FontSize="Medium"
+               FontAttributes="Bold"/>
+            <ListView VerticalOptions="FillAndExpand"
+                  HorizontalOptions="FillAndExpand"
+                  HasUnevenRows="True"
+                  Margin="10"
+                  BackgroundColor="Transparent"
+                  IsRefreshing="{Binding IsBusy}"
+                  ItemsSource="{Binding Items}"
+                  SeparatorVisibility="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <render:GradientColorContent VerticalOptions="FillAndExpand"
+                               HorizontalOptions="FillAndExpand"                                                    
+                               ColorsList="#3E3E40,#282828"
+                               Padding="0" 
+                               Margin="0,5"
+                               Mode="ToRight">
+                                <render:Accordion TitleBindle="{Binding ListName}">
+                                    
+                                </render:Accordion>
+                            </render:GradientColorContent>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </render:GradientColorStack>
+</ContentPage>

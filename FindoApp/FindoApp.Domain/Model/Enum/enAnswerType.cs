@@ -6,6 +6,7 @@
         List,
         Combo,
         Text,
-        MultiLine
+        MultiLine,
+        Date
     }
 }
