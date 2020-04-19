@@ -1,30 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.IO;
 using System.Reflection;
-using System.Threading.Tasks;
 using Findo.Framework.API.Middleware;
-using Findo.Framework.Cache;
 using Findo.Framework.Cache.DependencyInjection;
 using Findo.Framework.Interface.Interface;
 using Findo.Framework.Persistence.UnitOfWork;
 using FluentValidation.AspNetCore;
 using MicroService.User.APi.Controllers;
+using MicroService.User.APi.Security;
+using MicroService.User.APi.SwaggerFilter;
 using MicroService.User.Domain.Interface.Repository;
 using MicroService.User.Domain.Interface.Service;
 using MicroService.User.Infra.Data;
 using MicroService.User.Infra.Repository;
 using MicroService.User.Service.Service;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
+using Microsoft.Extensions.PlatformAbstractions;
+using Microsoft.IdentityModel.Tokens;
 using Serilog;
+using Swashbuckle.AspNetCore.Examples;
 using Swashbuckle.AspNetCore.Swagger;
+using Swashbuckle.AspNetCore.SwaggerUI;
 
 namespace MicroService.User.APi
 {
@@ -47,15 +52,82 @@ namespace MicroService.User.APi
                     .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
                     .AddApplicationPart(assembly).AddControllersAsServices();
 
-            services.AddSwaggerGen(c =>
+            services.AddAuthorization(auth =>
             {
-                c.SwaggerDoc("v1", new Info { Title = "User", Version = "v1" });
+                auth.AddPolicy("Bearer", new AuthorizationPolicyBuilder()
+                    .AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme‌​)
+                    .RequireAuthenticatedUser().Build());
             });
 
-            ConfigureDependencyInject(services);
+            services.AddCors(o => o.AddPolicy("User", builder =>
+            {
+                builder.AllowAnyOrigin()
+                 .AllowAnyMethod()
+                 .AllowAnyHeader();
+            }));
+
+            services.AddAuthentication(options =>
+            {
+                options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(options =>
+                                     {
+                                         options.TokenValidationParameters = new TokenValidationParameters()
+                                         {
+                                             IssuerSigningKey = Audience.Secret,
+                                             ValidAudience = Audience.Aud,
+                                             ValidIssuer = Audience.Iss,
+                                             ValidateIssuerSigningKey = true,
+                                             ValidateLifetime = true,
+                                             ClockSkew = TimeSpan.FromMinutes(0)
+                                         };
+                                     });
+
+
+            // Register the Swagger generator, defining one or more Swagger documents
+            services.AddSwaggerGen(c =>
+            {
+                c.DocumentFilter<LowercaseDocumentFilter>();
+                c.SwaggerDoc("v1", new Info
+                {
+                    Version = "v1",
+                    Title = "User",
+                    Description = "Expose User interfaces",
+                    TermsOfService = "None",
+                    Contact = new Contact()
+                    {
+                        Name = "Fagner Muniz",
+                        Email = "fagner.muniz@lobu.com.br",
+                        Url = UriHelper.Encode(new Uri("http://www.lobu.com"))
+                    }
+                });
+
+                // Swagger 2.+ support
+                var security = new Dictionary<string, IEnumerable<string>>
+                {
+                    {
+                        "Bearer", new string[]
+                        {
+                        }
+                    },
+                };
+
+                c.AddSecurityDefinition("Bearer", new ApiKeyScheme
+                {
+                    Description = "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
+                    Name = "Authorization",
+                    In = "header",
+                    Type = "apiKey"
+                });
+
+                c.OperationFilter<ExamplesOperationFilter>();
+                c.AddSecurityRequirement(security);
+
+                var filePath = Path.Combine(PlatformServices.Default.Application.ApplicationBasePath, "MicroService.User.APi.xml");
+                c.IncludeXmlComments(filePath);
+                c.DescribeAllEnumsAsStrings();
+            });
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             if (env.IsDevelopment())
@@ -69,14 +141,21 @@ namespace MicroService.User.APi
 
             loggerFactory.AddSerilog();
             app.UseHandleExceptionMiddleware();
+
             app.UseSwagger();
 
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Micro Service - User");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "User");
+                c.RoutePrefix = string.Empty;
+                c.DocumentTitle = "User Interfaces API";
+                c.DocExpansion(DocExpansion.None);
             });
 
 
+            app.UseStaticFiles();
+            app.UseCors("User");
+            app.UseAuthentication();
             app.UseHttpsRedirection();
             app.UseMvc();
         }

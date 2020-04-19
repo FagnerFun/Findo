@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Findo.Framework.API.Controller;
 using MicroService.User.Domain.Interface.Service;
-using MicroService.User.Domain.Model;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MicroService.User.APi.Controllers
@@ -20,7 +16,7 @@ namespace MicroService.User.APi.Controllers
 
         public override ActionResult<IEnumerable<Domain.Model.User>> Get()
         {
-            return new List<MicroService.User.Domain.Model.User>()
+            return new List<Domain.Model.User>()
             {
                 new Domain.Model.User
                 {
@@ -31,6 +27,13 @@ namespace MicroService.User.APi.Controllers
                     Password = "1234"
                 }
             };
+        }
+
+
+        [NonAction]
+        public override ActionResult<Domain.Model.User> Get(string id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

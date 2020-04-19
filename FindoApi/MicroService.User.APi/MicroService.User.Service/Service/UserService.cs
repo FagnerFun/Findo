@@ -19,5 +19,10 @@ namespace MicroService.User.Service.Service
         {
             _config = configuration;
         }
+
+        public System.Threading.Tasks.Task<dynamic> LoginAsync(Domain.Model.User login)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

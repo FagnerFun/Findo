@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using MicroService.User.Infra.Configuration;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System.IO;
 
@@ -20,18 +21,7 @@ namespace MicroService.User.Infra.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Domain.Model.User>(entity =>
-            {
-                entity.ToTable("User");
-
-                entity.Property(x => x.Id).HasColumnName("IdOrganizationUnit").HasColumnType("int");
-                entity.Property(x => x.FacebookId).HasColumnName("facebookId").HasColumnType("varchar(255)");
-                entity.Property(x => x.GoogleId).HasColumnName("googleId").HasColumnType("varchar(255)").IsRequired();
-                entity.Property(x => x.Mail).HasColumnName("mail").HasColumnType("varchar(255)");
-                entity.Property(x => x.Password).HasColumnName("password").HasColumnType("varchar(255)");
-
-                entity.HasKey(e => e.Id);
-            });
+            modelBuilder.AddUserConfiguration();
 
         }
 

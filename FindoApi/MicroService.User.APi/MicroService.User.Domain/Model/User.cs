@@ -11,5 +11,6 @@ namespace MicroService.User.Domain.Model
         public string GoogleId { get; set; }
         public string Mail { get; set; }
         public string Password { get; set; }
+
     }
 }
