@@ -15,6 +15,6 @@
     <TabbedPage.Children>
         <views:AddPage IconImageSource="add.png"/>
         <views:CheckListPage IconImageSource="list.png"/>
-        <views:SettingPage IconImageSource="settings.png"/>
+        <views:LoginPage IconImageSource="settings.png"/>
     </TabbedPage.Children>
 </TabbedPage>

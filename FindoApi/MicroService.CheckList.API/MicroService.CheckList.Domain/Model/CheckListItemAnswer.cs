@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FindoApp.Domain.Model
+namespace MicroService.CheckList.Domain.Model
 {
     public class CheckListItemAnswer
     {
@@ -13,7 +13,7 @@ namespace FindoApp.Domain.Model
         public Guid? IdCheckListItemAlternativa { get; set; }
 
         public string Value { get; set; }
-        
+
         public virtual CheckListItemAlternativa CheckListItemAlternativa { get; set; }
     }
 }

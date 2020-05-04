@@ -10,10 +10,11 @@ namespace FindoApp.Service
     {
         public List<CheckList> GetCheckLists()
         {
-            CheckList lista1 = new CheckList { IdCheckList = Guid.NewGuid(), Title = "A Lista 123" };
-            CheckList lista2 = new CheckList { IdCheckList = Guid.NewGuid(), Title = "Fagner Sample" };
+            CheckList lista1 = new CheckList { IdCheckList = Guid.NewGuid(), Title = "Inspeção veícular" };
+            CheckList lista2 = new CheckList { IdCheckList = Guid.NewGuid(), Title = "Fagner sample" };
+            CheckList lista3 = new CheckList { IdCheckList = Guid.NewGuid(), Title = "UP - Avaliação de disciplina" };
 
-            
+
             GroupCheckList grpInfoVeiculo = new GroupCheckList
             {
                 IdGroupCheckList = new Guid("14109463-ecdb-48a2-a67f-a888d6548e5c"),
@@ -65,7 +66,8 @@ namespace FindoApp.Service
             return new List<CheckList>()
             {
                 lista1,
-                lista2
+                lista2,
+                lista3
             };
         }
     }

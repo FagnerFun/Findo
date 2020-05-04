@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Interface\Service\" />
+    <Folder Include="Interface\Repository\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Findo.Framework.Interface">
+      <HintPath>..\dll\Findo.Framework.Interface.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

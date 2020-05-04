@@ -194,4 +194,10 @@
   <ItemGroup>
     <BundleResource Include="Resources\add.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\expanded.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\collapsed.png" />
+  </ItemGroup>
 </Project>

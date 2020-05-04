@@ -1,20 +1,24 @@
 ﻿using System.Collections.ObjectModel;
 using System.Linq;
+using System.Windows.Input;
 using FindoApp.Domain.Interface.Service;
 using FindoApp.Domain.Model;
+using FindoApp.Model;
 using Prism.Navigation;
+using Xamarin.Forms;
+using Xamarin.Forms.Internals;
 
 namespace FindoApp.ViewModel
 {
     public class CheckListItemViewModel : ViewModelBase
     {
-        public ObservableCollection<CheckListItem> Items { get; }
+        public ObservableCollection<CheckListItemModel> Items { get; }
 
         private ICheckListService _checkListService;
         public CheckListItemViewModel(INavigationService navigationService, ICheckListService checkListService) : base(navigationService)
         {
             _checkListService = checkListService;
-            Items = new ObservableCollection<CheckListItem>();
+            Items = new ObservableCollection<CheckListItemModel>();
         }
         
         public override void OnNavigatedTo(INavigationParameters parameters)
@@ -23,14 +27,18 @@ namespace FindoApp.ViewModel
 
             ListName = chk.Title;
 
-            chk.Groups.SelectMany(x => x.Itens)
-                      .OrderBy(x => x.Order)
-                      .ToList()
-                      .ForEach(x => Items.Add(x));
+            Items.Clear();
+            chk.Groups.FirstOrDefault().Itens.OrderBy(x => x.Order).ForEach(x => Items.Add(new CheckListItemModel(x)));
         }
 
-        #region propertys
-        
+        protected override void TitleCommandEvent(object e)
+        {
+            CheckListItemModel item = e as CheckListItemModel;
+            item.Expanded = true;
+        }
+
+        #region properties
+
         string listName = "";
         public string ListName
         {

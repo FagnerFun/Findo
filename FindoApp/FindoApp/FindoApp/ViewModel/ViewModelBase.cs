@@ -4,14 +4,19 @@ using Prism.Navigation;
 using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace FindoApp.ViewModel
 {
     public abstract class ViewModelBase : BindableBase, INavigationAware, IActiveAware
     {
+        public ICommand TitleCommand { get; }
         protected ViewModelBase(INavigationService navigationService)
         {
             NavigationService = navigationService;
+
+            TitleCommand = new Command(TitleCommandEvent);
         }
 
         public INavigationService NavigationService { get; }
@@ -33,6 +38,11 @@ namespace FindoApp.ViewModel
         {
             get { return _isActive; }
             set { SetProperty(ref _isActive, value, RaiseIsActiveChanged); }
+        }
+
+        protected virtual void TitleCommandEvent(object e)
+        {
+            return;
         }
 
         protected virtual void RaiseIsActiveChanged()

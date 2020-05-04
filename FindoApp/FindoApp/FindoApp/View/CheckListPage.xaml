@@ -22,7 +22,6 @@
                   HasUnevenRows="True"
                   Margin="10"
                   BackgroundColor="Transparent"
-                  CachingStrategy="RecycleElement"
                   GroupDisplayBinding="{Binding Title}"
                   IsGroupingEnabled="true"
                   IsRefreshing="{Binding IsBusy}"
