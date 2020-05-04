@@ -41,9 +41,9 @@ Motivo:
 
 ### Screenshot 
 
-![Listagem](Screenshot/Screenshot_1588545858.png)
-![Items](Screenshot/Screenshot_1588545878.png)
-![Login](Screenshot/Screenshot_1588547249.png)
+![Listagem](FindoApp/Screenshot/Screenshot_1588545858.png)
+![Items](FindoApp/Screenshot/Screenshot_1588545878.png)
+![Login](FindoApp/Screenshot/Screenshot_1588547249.png)
 
 
 ## API
