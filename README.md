@@ -8,7 +8,7 @@
 
 **Professor Orientador:** @willbuildapps
 
-### Breve descrição:###
+### Breve descrição: ###
    Solução para coleta de dados, permitindo apontamento de campo de diversos tipos de dados, grupos de usuários e controle de privacidade.
  
 ### Motivo: ###
