@@ -31,10 +31,12 @@ namespace FindoApp.ViewModel
             chk.Groups.FirstOrDefault().Itens.OrderBy(x => x.Order).ForEach(x => Items.Add(new CheckListItemModel(x)));
         }
 
-        protected override void TitleCommandEvent(object e)
+        public override void TitleCommandEvent(object e)
         {
+            if (e == null) return;
+
             CheckListItemModel item = e as CheckListItemModel;
-            item.Expanded = true;
+            item.Expanded = !item.Expanded;
         }
 
         #region properties

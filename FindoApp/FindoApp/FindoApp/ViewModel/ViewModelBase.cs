@@ -16,7 +16,7 @@ namespace FindoApp.ViewModel
         {
             NavigationService = navigationService;
 
-            TitleCommand = new Command(TitleCommandEvent);
+            TitleCommand = new Command<object>(TitleCommandEvent);
         }
 
         public INavigationService NavigationService { get; }
@@ -40,7 +40,7 @@ namespace FindoApp.ViewModel
             set { SetProperty(ref _isActive, value, RaiseIsActiveChanged); }
         }
 
-        protected virtual void TitleCommandEvent(object e)
+        public virtual void TitleCommandEvent(object e)
         {
             return;
         }

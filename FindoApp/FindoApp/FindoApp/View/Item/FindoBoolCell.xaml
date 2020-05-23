@@ -5,8 +5,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:control="clr-namespace:FindoApp.Control"
              mc:Ignorable="d"
-             x:Class="FindoApp.View.FindoTextCell" >
-  <ViewCell.View>
+             x:Class="FindoApp.View.FindoBoolCell">
+    <ViewCell.View>
         <control:GradientColorStack 
             ColorsList="#3E3E40,#282828"
             Mode="ToBottomRight"
@@ -43,7 +43,13 @@
                     <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" CommandParameter="{Binding .}" />
                 </Grid.GestureRecognizers>
             </Grid>
-            <StackLayout  BackgroundColor="#303030" Padding="5,0" HeightRequest="90" Margin="0,-10,0,0" IsVisible="{Binding Expanded}">
+            <StackLayout Orientation="Horizontal"  BackgroundColor="#303030" Padding="5" HeightRequest="90" Margin="0,-10,0,0" IsVisible="{Binding Expanded}">
+                <StackLayout BackgroundColor="{Binding ActiveColor}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <Label Text="{Binding TrueBool}" />
+                </StackLayout>
+                <StackLayout BackgroundColor="{Binding DeactiveColor}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <Label Text="{Binding FalseBool}" />
+                </StackLayout>
                 <Entry Placeholder="Digite seu texto." TextColor="#FEDB03" FontAttributes="Italic" PlaceholderColor="#FEDB03" FontSize="14" BackgroundColor="Transparent" VerticalOptions="CenterAndExpand"/>
             </StackLayout>
         </control:GradientColorStack >

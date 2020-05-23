@@ -31,6 +31,6 @@
                   IsRefreshing="{Binding IsBusy}"
                   ItemsSource="{Binding Items}"
                   SeparatorVisibility="None"
-                  ItemTemplate="{StaticResource Key=CellTemplate}" />
+                  ItemTemplate="{StaticResource Key=CellTemplate}"/>
     </render:GradientColorStack>
 </ContentPage>

@@ -4,12 +4,12 @@ using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace FindoApp.View
+namespace FindoApp.View.Item
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class FindoTextCell : ViewCell
+    public partial class FindoComboCell : ViewCell
     {
-        public static BindableProperty ParentBindingContextProperty = BindableProperty.Create(nameof(ParentBindingContext), typeof(object), typeof(FindoTextCell), null);
+        public static BindableProperty ParentBindingContextProperty = BindableProperty.Create(nameof(ParentBindingContext), typeof(object), typeof(FindoComboCell), null);
 
         public object ParentBindingContext
         {
@@ -17,7 +17,7 @@ namespace FindoApp.View
             set { SetValue(ParentBindingContextProperty, value); }
         }
 
-        public FindoTextCell()
+        public FindoComboCell()
         {
             InitializeComponent();
         }

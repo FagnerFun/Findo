@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FindoApp.Domain.Model;
+using FindoApp.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

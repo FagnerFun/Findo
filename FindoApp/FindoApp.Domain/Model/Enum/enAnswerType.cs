@@ -7,6 +7,7 @@
         Combo,
         Text,
         MultiLine,
-        Date
+        Date,
+        MultiSelection
     }
 }

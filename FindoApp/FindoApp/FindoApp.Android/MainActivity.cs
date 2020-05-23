@@ -19,7 +19,7 @@ using FindoApp.Droid.DependencyInjection;
 
 namespace FindoApp.Droid
 {
-    [Activity(Label = "FindoApp", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(Label = "FindoApp", Icon = "@mipmap/icon", Theme = "@style/MainTheme", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity, IAuthenticate
     {
         public const string TAG = "MainActivity";
@@ -59,6 +59,7 @@ namespace FindoApp.Droid
 
         public async Task<bool> Authenticate(MobileServiceAuthenticationProvider provider)
         {
+            return false;
             bool success = false;
             try
             {

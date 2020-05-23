@@ -5,8 +5,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:control="clr-namespace:FindoApp.Control"
              mc:Ignorable="d"
-             x:Class="FindoApp.View.FindoTextCell" >
-  <ViewCell.View>
+             x:Class="FindoApp.View.Item.FindoComboCell">
+    <ViewCell.View>
         <control:GradientColorStack 
             ColorsList="#3E3E40,#282828"
             Mode="ToBottomRight"
@@ -43,8 +43,26 @@
                     <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" CommandParameter="{Binding .}" />
                 </Grid.GestureRecognizers>
             </Grid>
-            <StackLayout  BackgroundColor="#303030" Padding="5,0" HeightRequest="90" Margin="0,-10,0,0" IsVisible="{Binding Expanded}">
-                <Entry Placeholder="Digite seu texto." TextColor="#FEDB03" FontAttributes="Italic" PlaceholderColor="#FEDB03" FontSize="14" BackgroundColor="Transparent" VerticalOptions="CenterAndExpand"/>
+            <StackLayout  BackgroundColor="#303030" Padding="5,0" HeightRequest="{Binding Height}" Margin="0,-10,0,0" IsVisible="{Binding Expanded}">
+                <ListView ItemsSource="{Binding AlternativesModel}"
+                          HorizontalOptions="FillAndExpand"
+                          VerticalOptions="FillAndExpand"
+                          SelectionMode="None"
+                          SeparatorColor="#FEDB03"
+                          VerticalScrollBarVisibility="Never"
+                          HorizontalScrollBarVisibility="Never"
+                          RowHeight="60">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                                    <Image Source="check.png" HeightRequest="62" WidthRequest="62" VerticalOptions="Center" IsVisible="{Binding ShowIcon}" />
+                                    <Label Text="{Binding Title}" FontSize="Medium" TextColor="{Binding TextColor}" Margin="10,0,0,0" HorizontalOptions="FillAndExpand" VerticalOptions="Center" />
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
             </StackLayout>
         </control:GradientColorStack >
     </ViewCell.View>
