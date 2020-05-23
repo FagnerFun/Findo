@@ -1,16 +1,23 @@
 # Findo
 
-Breve descrição:
+### Universidade Positivo ###
+
+**Disciplina** Trabalho de conclusão de curso.
+
+**Curso** Pôs graduação dispositivo moveis e computação na nuvem.
+
+**Professor Orientador:** @willbuildapps
+
+### Breve descrição: ###
    Solução para coleta de dados, permitindo apontamento de campo de diversos tipos de dados, grupos de usuários e controle de privacidade.
  
-Motivo:
-    Em acompanhamento de varias empresas pude perceber que a grande maioria realizam algum tipo de apontamento de dados, vejo hoje uma oportunidade de poder coletar informações para qualquer area em um aplicativo, e fornecer os dados de maneira analitica atraves de um BI, para assim gerar valor de negócio. As listagens possuiram categorias gostaria futuramente de poder colaborar com a sociedade atraves das informações disponiveis mas será um passo a ser pensado futuramente, 
+### Motivo: ###
+   Em acompanhamento de varias empresas pude perceber que a grande maioria realizam algum tipo de apontamento de dados, vejo hoje uma oportunidade de poder coletar informações para qualquer area em um aplicativo, e fornecer os dados de maneira analitica atraves de um BI, para assim gerar valor de negócio. As listagens possuiram categorias gostaria futuramente de poder colaborar com a sociedade atraves das informações disponiveis mas será um passo a ser pensado futuramente.
  
 
-
 ## APP
-- Arquitetura: DDD
-- Integração com APP Center
+- Arquitetura: Domain Driven Design
+- Integração Continua com APP Center
 
 
 ***FindoAPP***
