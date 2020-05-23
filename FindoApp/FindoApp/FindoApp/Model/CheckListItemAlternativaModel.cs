@@ -1,8 +1,5 @@
 ﻿using FindoApp.Domain.Model;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Text;
 
 namespace FindoApp.Model
 {
@@ -11,6 +8,7 @@ namespace FindoApp.Model
         public CheckListItemAlternativaModel(CheckListItemAlternativa alternative)
         {
             Title = alternative.Texto;
+            IdCheckListItemAlternativa = alternative.IdCheckListItemAlternativa;
         }
 
 
@@ -28,6 +26,7 @@ namespace FindoApp.Model
                     _selected = value;
                     OnPropertyChanged("Selected");
                     OnPropertyChanged("ShowIcon");
+                    OnPropertyChanged("TextColor");
                 }
             }
         }

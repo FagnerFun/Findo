@@ -51,13 +51,14 @@
                           SeparatorColor="#FEDB03"
                           VerticalScrollBarVisibility="Never"
                           HorizontalScrollBarVisibility="Never"
+                          ItemTapped="Selected_Combo_Item"
                           RowHeight="60">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
                                 <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" Orientation="Horizontal">
-                                    <Image Source="check.png" HeightRequest="62" WidthRequest="62" VerticalOptions="Center" IsVisible="{Binding ShowIcon}" />
-                                    <Label Text="{Binding Title}" FontSize="Medium" TextColor="{Binding TextColor}" Margin="10,0,0,0" HorizontalOptions="FillAndExpand" VerticalOptions="Center" />
+                                    <Label FontAttributes="Bold" Margin="10,0,0,0" Text="{Binding Title}" FontSize="Medium" TextColor="{Binding TextColor}"  HorizontalOptions="FillAndExpand" VerticalOptions="Center" />
+                                    <Image Margin="10,0,10,0" Source="check.png" HeightRequest="30" WidthRequest="30" VerticalOptions="Center" IsVisible="{Binding ShowIcon}" />
                                 </StackLayout>
                             </ViewCell>
                         </DataTemplate>

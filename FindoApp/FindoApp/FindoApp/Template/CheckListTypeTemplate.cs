@@ -10,11 +10,15 @@ namespace FindoApp.Template
     {
         DataTemplate TextTemplate;
         DataTemplate ComboTemplate;
+        DataTemplate MultiSelectionTemplate;
+        DataTemplate DateTemplate;
 
         public CheckListTypeTemplate()
         {
             TextTemplate = new DataTemplate(typeof(FindoTextCell));
             ComboTemplate = new DataTemplate(typeof(FindoComboCell));
+            MultiSelectionTemplate = new DataTemplate(typeof(FindoMultiSelectionCell));
+            DateTemplate = new DataTemplate(typeof(FindoDateCell));
         }
 
         protected override DataTemplate OnSelectTemplate(object item, BindableObject container)
@@ -25,6 +29,12 @@ namespace FindoApp.Template
                 case enAnswerType.Combo:
                     ComboTemplate.SetValue(FindoComboCell.ParentBindingContextProperty, container.BindingContext);
                     return ComboTemplate;
+                case enAnswerType.Date:
+                    DateTemplate.SetValue(FindoDateCell.ParentBindingContextProperty, container.BindingContext);
+                    return DateTemplate;
+                case enAnswerType.MultiSelection:
+                    MultiSelectionTemplate.SetValue(FindoMultiSelectionCell.ParentBindingContextProperty, container.BindingContext);
+                    return MultiSelectionTemplate;
                 default:
                     TextTemplate.SetValue(FindoTextCell.ParentBindingContextProperty, container.BindingContext);
                     return TextTemplate;

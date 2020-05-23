@@ -200,4 +200,13 @@
   <ItemGroup>
     <BundleResource Include="Resources\collapsed.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\check.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\done.png" />
+  </ItemGroup>
 </Project>

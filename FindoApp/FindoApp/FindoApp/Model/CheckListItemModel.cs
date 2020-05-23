@@ -59,7 +59,8 @@ namespace FindoApp.Model
                 return 60 * count;
             }
         }
-        
+
+        public DateTime DateSelection { get; set; } = DateTime.Now;
         #endregion
 
         public event PropertyChangedEventHandler PropertyChanged;

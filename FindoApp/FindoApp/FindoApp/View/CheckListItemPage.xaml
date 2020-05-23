@@ -15,12 +15,21 @@
             ColorsList="#3E3E40,#282828"
             Mode="ToBottomRight" HorizontalOptions="FillAndExpand" >
         <StackLayout HorizontalOptions="FillAndExpand" 
+                     Orientation="Horizontal"
                      BackgroundColor="#282828">
             <Label Text="{Binding ListName}" 
-               TextColor="#AFAFAF"
-               Margin="12"
-               FontSize="Medium"
-               FontAttributes="Bold"/>
+                   TextColor="#AFAFAF"
+                   Margin="12"
+                   HorizontalOptions="FillAndExpand"
+                   FontSize="Medium"
+                   FontAttributes="Bold"/>
+            <StackLayout WidthRequest="100">
+                <Image Source="done.png" Aspect="AspectFit" HeightRequest="32" WidthRequest="32" VerticalOptions="CenterAndExpand"/>
+                <Label Text="Done" TextColor="#FEDB03" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" Margin="0,0,0,10" />
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding DoneCommand}" />
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
         </StackLayout>
         <ListView VerticalOptions="FillAndExpand"
                   HorizontalOptions="FillAndExpand"
