@@ -80,9 +80,9 @@ namespace FindoApp.ViewModel
 
         private async void DoneExecute()
         {
-            string answer = await _messageBoxService.ShowActionSheet("Done?", "Cancel", null,  new string[] { "Save", "Save and done", "Discard" });
+            string answer = await _messageBoxService.ShowActionSheet("Done?", "Cancel", null,  new string[] { "Save and done", "Discard" });
 
-            if(answer != "Cancel" || string.IsNullOrEmpty(answer))
+            if(string.IsNullOrEmpty(answer) || answer != "Cancel")
                 await _navigationService.GoBackAsync();
         }
 
