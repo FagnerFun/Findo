@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:render="clr-namespace:FindoApp.Control"
+             mc:Ignorable="d"
+             x:Class="FindoApp.View.UnaccessPage">
+    <ContentPage.Content>
+        <render:GradientColorStack 
+            ColorsList="#3E3E40,#282828"
+            Mode="ToBottomRight"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand">
+            <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                <Image Source="forbidden.png" HeightRequest="84" WidthRequest="84"  />
+                <Label Text="SEM ACESSO." TextColor="#AFAFAF" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" FontSize="Medium" Margin="0,80,0,0" FontAttributes="Bold"/>
+                <Label Text="Seu perfil não pode criar listas." TextColor="#AFAFAF" HorizontalOptions="FillAndExpand"  HorizontalTextAlignment="Center" FontSize="Small" Margin="0,30,0,0" FontAttributes="Bold"/>
+            </StackLayout>
+        </render:GradientColorStack>
+    </ContentPage.Content>
+</ContentPage>

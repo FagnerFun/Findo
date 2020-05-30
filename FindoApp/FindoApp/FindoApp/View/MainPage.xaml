@@ -13,7 +13,7 @@
             SelectedTabColor="#FEDB03"
             UnselectedTabColor="#6E6E70">
     <TabbedPage.Children>
-        <views:AddPage IconImageSource="add.png"/>
+        <views:UnaccessPage IconImageSource="add.png"/>
         <views:CheckListPage IconImageSource="list.png"/>
         <views:LoginPage IconImageSource="settings.png"/>
     </TabbedPage.Children>

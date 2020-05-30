@@ -16,8 +16,8 @@
                     Margin="0,20,0,0"
                     VerticalOptions="CenterAndExpand"
                     HorizontalOptions="CenterAndExpand">
-                    <ImageButton BackgroundColor="Transparent" Source="fb.png" Margin="30" HorizontalOptions="Start" WidthRequest="64" HeightRequest="64" />
-                    <ImageButton BackgroundColor="Transparent" Source="gp.png" Margin="30" HorizontalOptions="Center" WidthRequest="64" HeightRequest="64" />
+                    <ImageButton BackgroundColor="Transparent" Source="fb.png" Margin="30" HorizontalOptions="Start" WidthRequest="64" HeightRequest="64" Command="{Binding FacebookComannd}" />
+                    <ImageButton BackgroundColor="Transparent" Source="gp.png" Margin="30" HorizontalOptions="Center" WidthRequest="64" HeightRequest="64" Command="{Binding GoogleComannd}" />
                     <ImageButton BackgroundColor="Transparent" Source="mail.png" Margin="30" HorizontalOptions="End" WidthRequest="64" HeightRequest="64"  Command="{Binding MailCommand}" />
                 </StackLayout>
             </StackLayout>

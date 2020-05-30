@@ -16,7 +16,7 @@
                FontSize="Medium"
                FontAttributes="Bold"/>
         </StackLayout>
-        <SearchBar Placeholder="buscar lista" TextColor="#B3B3B5" BackgroundColor="#6E6E70" FontSize="Small" Margin="10,5" HeightRequest="40" CancelButtonColor="#B3B3B5" PlaceholderColor="#B3B3B5"  />
+        <SearchBar IsVisible="False" x:Name="searchBar" Placeholder="buscar lista" TextColor="#B3B3B5" BackgroundColor="#6E6E70" FontSize="Small" Margin="10,5" HeightRequest="40" CancelButtonColor="#B3B3B5" PlaceholderColor="#B3B3B5" SearchCommand="{Binding SearchListCommand}" SearchCommandParameter="{Binding Text, Source={x:Reference searchBar}}" />
         <ListView VerticalOptions="FillAndExpand"
                   HorizontalOptions="FillAndExpand"
                   HasUnevenRows="True"

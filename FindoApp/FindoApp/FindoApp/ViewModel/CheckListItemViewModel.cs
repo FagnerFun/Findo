@@ -62,11 +62,11 @@ namespace FindoApp.ViewModel
             if (e == null) return;
 
             CheckListItemAlternativaModel item = e as CheckListItemAlternativaModel;
-            if(oldItem != null && oldItem.IdCheckListItemAlternativa != item.IdCheckListItemAlternativa)
-            {
-                oldItem.Selected = !oldItem.Selected;
-            }
-            oldItem = item;
+            //if(oldItem != null && oldItem.IdCheckListItemAlternativa != item.IdCheckListItemAlternativa)
+            //{
+            //    oldItem.Selected = !oldItem.Selected;
+            //}
+            //oldItem = item;
             item.Selected = !item.Selected;
         }
 

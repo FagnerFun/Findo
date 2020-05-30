@@ -2,11 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace FindoApp.Domain.Interface.Service
 {
     public interface ICheckListService
     {
-        List<CheckList> GetCheckLists();
+        Task<List<CheckList>> GetCheckLists();
     }
 }

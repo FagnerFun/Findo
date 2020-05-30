@@ -209,4 +209,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\done.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\forbidden.png" />
+  </ItemGroup>
 </Project>

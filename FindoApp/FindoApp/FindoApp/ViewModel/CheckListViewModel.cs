@@ -8,13 +8,15 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
+using Xamarin.Forms.Internals;
 
 namespace FindoApp.ViewModel
 {
     public class CheckListViewModel : ViewModelBase
     {
-        public ObservableCollection<CheckListHeaderGroup> Items { get; }
+        public ObservableCollection<CheckListHeaderGroup> Items { get; set; }
         public ICommand ItemClickCommand { get; set; }
+        public ICommand SearchListCommand { get; set; }
 
 
         private ICheckListService _checkListService;
@@ -24,15 +26,22 @@ namespace FindoApp.ViewModel
 
             Items = new ObservableCollection<CheckListHeaderGroup>();
 
-            List<CheckList> checklits = _checkListService.GetCheckLists();
+            ItemClickCommand = new Command<CheckList>(async (item) => await ItemClickCommandExecute(item));
+            SearchListCommand = new Command<string>((s) => SearchListCommandExecute(s));
 
-            var orderedList = checklits.GroupBy(c => c.Title[0])
-                                       .ToDictionary(x => x.Key, x => x.ToList())
-                                       .OrderBy(x => x.Key)
-                                       .Select(x => new CheckListHeaderGroup(x.Value, x.Key.ToString()));
+            LoadDataAsync();
+        }
 
-            Items = new ObservableCollection<CheckListHeaderGroup>(orderedList);
-            ItemClickCommand = new Command<CheckList>( async (item) => await ItemClickCommandExecute(item) );
+        async Task LoadDataAsync()
+        {
+            List<CheckList> checklits = await _checkListService.GetCheckLists();
+
+            checklits.GroupBy(c => c.Title[0])
+                     .ToDictionary(x => x.Key, x => x.ToList())
+                     .OrderBy(x => x.Key)
+                     .Select(x => new CheckListHeaderGroup(x.Value, x.Key.ToString()))
+                     .ForEach(x => Items.Add(x));
+
         }
 
         private Task ItemClickCommandExecute(CheckList item)
@@ -43,5 +52,12 @@ namespace FindoApp.ViewModel
             return NavigationService.NavigateAsync("CheckListItemPage", parameters);
         }
 
+
+        private void SearchListCommandExecute(string search)
+        {
+            if (string.IsNullOrEmpty(search)) return;
+            
+            Items = new ObservableCollection<CheckListHeaderGroup>(Items.Where(x => x.Title.Contains(search)));
+        }
     }
 }

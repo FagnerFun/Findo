@@ -23,7 +23,7 @@ namespace FindoApp.Droid
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity, IAuthenticate
     {
         public const string TAG = "MainActivity";
-        internal static readonly string CHANNEL_ID = "my_notification_channel";
+        internal static readonly string CHANNEL_ID = "findo_notification_channel";
 
         MobileServiceUser user;
         protected override void OnCreate(Bundle savedInstanceState)
@@ -33,11 +33,17 @@ namespace FindoApp.Droid
 
             base.OnCreate(savedInstanceState);
 
-            //CurrentPlatform.Init();
+            CurrentPlatform.Init();
 
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
 
-            //App.Init((IAuthenticate)this);
+            #region authentication
+
+            App.Init((IAuthenticate)this);
+
+            #endregion
+
+            #region notifications 
 
             //if (Intent.Extras != null)
             //{
@@ -54,18 +60,18 @@ namespace FindoApp.Droid
             //IsPlayServicesAvailable();
             //CreateNotificationChannel();
 
+            #endregion
+
             LoadApplication(new App(new AndroidPlatformInitializer()));
         }
 
         public async Task<bool> Authenticate(MobileServiceAuthenticationProvider provider)
         {
-            return false;
             bool success = false;
             try
             {
                 if (user == null)
                 {
-                    // The authentication provider could also be Facebook, Twitter, or Microsoft
                     user = await AzureService.DefaultManager.CurrentClient.LoginAsync(this, provider, Settings.URLScheme);
                     if (user != null)
                     {

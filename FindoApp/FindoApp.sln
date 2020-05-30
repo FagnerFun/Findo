@@ -21,7 +21,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FindoApp.Domain", "FindoApp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FindoApp.Service", "FindoApp.Service\FindoApp.Service.csproj", "{5DDB3514-FAED-44E2-9485-3B5374E0DF11}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindoApp.Infra.SQLite", "FindoApp.Infra.SQLite\FindoApp.Infra.SQLite.csproj", "{9A855EAB-FBB7-46D6-9597-0F6985FC93AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FindoApp.Infra.SQLite", "FindoApp.Infra.SQLite\FindoApp.Infra.SQLite.csproj", "{9A855EAB-FBB7-46D6-9597-0F6985FC93AF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

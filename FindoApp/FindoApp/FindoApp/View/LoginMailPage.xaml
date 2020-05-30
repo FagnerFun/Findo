@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:render="clr-namespace:FindoApp.Control"
+             NavigationPage.HasNavigationBar="False"
+             mc:Ignorable="d"
+             x:Class="FindoApp.View.LoginMailPage">
+    <ContentPage.Content>
+        <render:GradientColorStack 
+            ColorsList="#3E3E40,#282828"
+            Mode="ToBottomRight" HorizontalOptions="FillAndExpand" >
+            <Image Source="findo" WidthRequest="128"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+            <StackLayout Margin="15">
+                <Entry Placeholder="Mail" 
+                       PlaceholderColor="#AFAFAF" 
+                       TextColor="#FEDB03"
+                       Text="{Binding Mail}"
+                       Keyboard="Email"/>
+                <Entry IsPassword="True"
+                       Placeholder="Password"
+                       PlaceholderColor="#AFAFAF"
+                       TextColor="#FEDB03"
+                       Text="{Binding Password}"/>
+                <Button Margin="0,30" Text="Login" BackgroundColor="#282828" TextColor="#FEDB03" Command="{Binding LoginCommand}"/>
+            </StackLayout>
+        </render:GradientColorStack >
+    </ContentPage.Content>
+</ContentPage>
